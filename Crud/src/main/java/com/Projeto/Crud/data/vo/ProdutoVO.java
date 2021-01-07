@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import org.apache.catalina.mapper.Mapper;
 import org.modelmapper.ModelMapper;
+import org.springframework.hateoas.RepresentationModel;
 
 import com.Projeto.Crud.entity.Produto;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +23,9 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode (callSuper = false)
 
-public class ProdutoVO implements Serializable {
+public class ProdutoVO extends RepresentationModel<ProdutoVO>implements Serializable {
 	
 	/**
 	 * 
@@ -42,6 +43,11 @@ public class ProdutoVO implements Serializable {
 	
 	public static ProdutoVO create(Produto produto) {
 		return new ModelMapper().map(produto, ProdutoVO.class);
+	}
+
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
