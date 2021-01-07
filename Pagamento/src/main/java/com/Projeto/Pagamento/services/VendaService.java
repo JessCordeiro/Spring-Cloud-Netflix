@@ -12,6 +12,7 @@ import com.Projeto.Pagamento.data.vo.VendaVO;
 import com.Projeto.Pagamento.entity.ProdutoVenda;
 import com.Projeto.Pagamento.entity.Venda;
 import com.Projeto.Pagamento.repository.ProdutoVendaRepository;
+import com.Projeto.Pagamento.repository.ResourceNotFoundException;
 import com.Projeto.Pagamento.repository.VendaRepository;
 
 
