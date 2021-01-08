@@ -5,8 +5,8 @@ Projeto de arquitetura de microserviços utilizando Spring cloud Netflix
 
 Contém neste projeto: 
 
-Arquitetura Microserviços
-Spring Cloud Netflix
-Service Discovery Netflix Eureka
-Gateway NetFlix Zuul
-Service Broker RabbitMQ
+Arquitetura Microserviços<br>
+Spring Cloud Netflix <br>
+Service Discovery Netflix Eureka <br>
+Gateway NetFlix Zuul <br>
+Service Broker RabbitMQ <br>
