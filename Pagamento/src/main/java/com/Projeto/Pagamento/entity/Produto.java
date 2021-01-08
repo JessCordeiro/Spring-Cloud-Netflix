@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 import org.modelmapper.ModelMapper;
 
-
+import com.Projeto.Pagamento.data.vo.ProdutoVO;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

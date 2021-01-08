@@ -7,6 +7,7 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.hateoas.RepresentationModel;
 
+import com.Projeto.Pagamento.entity.ProdutoVenda;
 import com.Projeto.Pagamento.entity.Venda;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -44,5 +45,15 @@ public class VendaVO extends RepresentationModel<VendaVO> implements Serializabl
 
 	public static VendaVO create(Venda venda) {
 		return new ModelMapper().map(venda, VendaVO.class);
+	}
+
+	public Iterable<ProdutoVenda> getProdutos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

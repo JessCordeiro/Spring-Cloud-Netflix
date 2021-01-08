@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 import org.modelmapper.ModelMapper;
 
-
+import com.Projeto.Pagamento.data.vo.ProdutoVendaVO;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -51,6 +51,16 @@ public class ProdutoVenda implements Serializable {
 	
 	public static ProdutoVenda create(ProdutoVendaVO produtoVendaVO) {
 		return new ModelMapper().map(produtoVendaVO, ProdutoVenda.class);
+	}
+
+	public static ProdutoVenda create(ProdutoVenda p) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setVenda(Venda venda2) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

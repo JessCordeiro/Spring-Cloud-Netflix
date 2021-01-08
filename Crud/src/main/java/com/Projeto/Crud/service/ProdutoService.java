@@ -10,20 +10,23 @@ import java.util.Optional;
 import com.Projeto.Crud.data.vo.ProdutoVO;
 import com.Projeto.Crud.entity.Produto;
 import com.Projeto.Crud.exception.ResourceNotFoundException;
+import com.Projeto.Crud.message.ProdutoSendMessage;
 import com.Projeto.Crud.repository.ProdutoRepository;
 
 @Service
 public class ProdutoService {
 	private final ProdutoRepository produtoRepository;
+	private final ProdutoSendMessage produtoSendMessage;
 
 	@Autowired
-	public ProdutoService(ProdutoRepository produtoRepository) {
-		super();
+	public ProdutoService(ProdutoRepository produtoRepository, ProdutoSendMessage produtoSendMessage) {
 		this.produtoRepository = produtoRepository;
+		this.produtoSendMessage = produtoSendMessage;
 	}
+	
 	public ProdutoVO create(ProdutoVO produtoVO) {
 	 	ProdutoVO proVoRetorno = ProdutoVO.create(produtoRepository.save(Produto.create(produtoVO)));
-	 	
+	 	produtoSendMessage.sendMessage(proVoRetorno);
 		return proVoRetorno;
 	}
 	
