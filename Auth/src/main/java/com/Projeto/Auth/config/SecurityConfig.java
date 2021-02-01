@@ -1,4 +1,4 @@
-package com.Projeto.Crud.config;
+package com.Projeto.Auth.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -6,15 +6,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer.JwtConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.Projeto.Crud.jwt.JwtTokenProvider;
-
-
-
-
+import com.Projeto.Auth.jwt.JwtConfigurer;
+import com.Projeto.Auth.jwt.JwtTokenProvider;
 
 
 
@@ -48,8 +44,9 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 			   .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 			   .and()
 			        .authorizeRequests()
+			        .antMatchers("/login").permitAll()
 			        .anyRequest().authenticated()
-			   .and();
-			   
+			   .and()
+			   .apply(new JwtConfigurer(jwtTokenProvider));
 	}
 }
